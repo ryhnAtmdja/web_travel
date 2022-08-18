@@ -11,7 +11,7 @@ export default class LandingPage extends Component {
     return (
       <>
         <Header {...this.props} />
-        <Hero />
+        <Hero data={json_landingPage.hero} />
       </>
     );
   }
