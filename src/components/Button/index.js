@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function Button(props) {
@@ -24,10 +19,10 @@ export default function Button(props) {
   if (props.isDisabled || props.isLoading) {
     if (props.isDisabled) className.push("disabled");
     return (
-      <span className={className.join("")} style={props.style}>
+      <span className={className.join(" ")} style={props.style}>
         {props.isLoading ? (
           <>
-            <span className="spinnder-border spinner-border-sm mx-5"></span>
+            <span className="spinner-border spinner-border-sm mx-5" />
             <span className="sr-only">Loading...</span>
           </>
         ) : (
@@ -52,14 +47,16 @@ export default function Button(props) {
         </a>
       );
     } else {
-      <Link
-        to={props.href}
-        className={className.join(" ")}
-        style={props.style}
-        onClick={props.onClick}
-      >
-        {props.children}
-      </Link>;
+      return (
+        <Link
+          to={props.href}
+          className={className.join(" ")}
+          style={props.style}
+          onClick={props.onClick}
+        >
+          {props.children}
+        </Link>
+      );
     }
   }
 
@@ -75,7 +72,7 @@ export default function Button(props) {
 }
 
 Button.propTypes = {
-  type: PropTypes.oneOf(["button" | "link"]),
+  type: PropTypes.oneOf(["button", "link"]),
   onClick: PropTypes.func,
   target: PropTypes.string,
   href: PropTypes.string,
