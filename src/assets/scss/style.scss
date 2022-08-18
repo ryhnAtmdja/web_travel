@@ -49,7 +49,10 @@
   font-weight: 500;
   line-height: 39px;
   color: $primary;
-  text-decoration: none !important;
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
 }
 
 header {
