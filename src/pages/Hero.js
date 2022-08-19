@@ -10,12 +10,12 @@ import Button from "components/Button";
 import formatNumbering from "utils/formatNumbering";
 
 const Hero = props => {
-  const showMostPicked = () => {
+  function showMostPicked() {
     window.scrollTo({
-      top: 30,
+      top: props.mostPickedRef.current.offsetTop - 30,
       behavior: "smooth",
     });
-  };
+  }
 
   return (
     <section className="container pt-5">
@@ -35,51 +35,55 @@ const Hero = props => {
           <Button
             isPrimary
             hasShadow
-            onClick={showMostPicked()}
+            onClick={showMostPicked}
             className="btn px-5"
           >
             Show Me Now
           </Button>
-          <div class="row" style={{ marginTop: 80 }}>
-            <div class="col-auto" style={{ marginRight: 35 }}>
+          <div className="row" style={{ marginTop: 80 }}>
+            <div className="col-auto" style={{ marginRight: 35 }}>
               <img
                 src={ic_traveler}
                 alt={`${props.data.travelers} travelers`}
                 width="32"
                 height="32"
               />
-              <h6 class="text-gray-900 mt-2">
+              <h6 className="text-gray-900 mt-2">
                 {formatNumbering(props.data.travelers)}{" "}
-                <span class="font-weight-light text-gray-500">travelers</span>
+                <span className="font-weight-light text-gray-500">
+                  travelers
+                </span>
               </h6>
             </div>
-            <div class="col-auto" style={{ marginRight: 35 }}>
+            <div className="col-auto" style={{ marginRight: 35 }}>
               <img
                 src={ic_treasure}
                 alt={`${props.data.treasures} treasures`}
                 width="32"
                 height="32"
               />
-              <h6 class="text-gray-900 mt-2">
+              <h6 className="text-gray-900 mt-2">
                 {formatNumbering(props.data.treasures)}{" "}
-                <span class="font-weight-light text-gray-500">treasures</span>
+                <span className="font-weight-light text-gray-500">
+                  treasures
+                </span>
               </h6>
             </div>
-            <div class="col-auto">
+            <div className="col-auto">
               <img
                 src={ic_cities}
                 alt={`${props.data.cities} cities`}
                 width="32"
                 height="32"
               />
-              <h6 class="text-gray-900 mt-2">
+              <h6 className="text-gray-900 mt-2">
                 {formatNumbering(props.data.cities)}{" "}
-                <span class="font-weight-light text-gray-500">cities</span>
+                <span className="font-weight-light text-gray-500">cities</span>
               </h6>
             </div>
           </div>
         </div>
-        <div class="col-6 pl-5">
+        <div className="col-6 pl-5">
           <div style={{ width: 520, height: 410 }}>
             <img
               src={HeroImg}

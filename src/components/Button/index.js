@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function Button(props) {
+const Button = props => {
   const className = [props.className];
   if (props.isPrimary) className.push("btn-primary");
   if (props.hasShadow) className.push("btn-shadow");
@@ -12,7 +11,7 @@ export default function Button(props) {
 
   //   event click check
   const onClick = () => {
-    if (props.onClick) onClick();
+    if (props.onClick) props.onClick();
   };
 
   //   isdisabled & isLoading check
@@ -69,7 +68,9 @@ export default function Button(props) {
       {props.children}
     </button>
   );
-}
+};
+
+export default Button;
 
 Button.propTypes = {
   type: PropTypes.oneOf(["button", "link"]),
